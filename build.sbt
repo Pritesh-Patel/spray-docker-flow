@@ -20,3 +20,5 @@ libraryDependencies ++= {
 }
 
 Revolver.settings
+enablePlugins(JavaAppPackaging)
+enablePlugins(DockerPlugin)
