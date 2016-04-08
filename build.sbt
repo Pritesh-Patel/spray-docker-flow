@@ -1,4 +1,4 @@
-organization  := "com.example"
+organization  := "playtech"
 
 version       := "0.1"
 
@@ -20,5 +20,9 @@ libraryDependencies ++= {
 }
 
 Revolver.settings
+
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
+
+dockerRepository := Some("docker-local.artifactory.virtuefusion.corp/virtuefusion")
+dockerUpdateLatest := true
