@@ -1,5 +1,7 @@
 organization  := "playtech"
 
+name := "spray-docker-flow"
+
 version       := "0.1"
 
 scalaVersion  := "2.11.6"
