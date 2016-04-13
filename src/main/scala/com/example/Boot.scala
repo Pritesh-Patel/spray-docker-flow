@@ -2,12 +2,15 @@ package com.example
 
 import akka.actor.{ActorSystem, Props}
 import akka.io.IO
+import com.typesafe.config.ConfigFactory
 import spray.can.Http
 import akka.pattern.ask
 import akka.util.Timeout
 import scala.concurrent.duration._
 
 object Boot extends App {
+  val config = ConfigFactory.load()
+  println(config.toString)
 
   // we need an ActorSystem to host our application in
   implicit val system = ActorSystem("on-spray-can")
