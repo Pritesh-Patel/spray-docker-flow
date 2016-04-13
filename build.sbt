@@ -28,4 +28,3 @@ enablePlugins(DockerPlugin)
 
 dockerRepository := Some("docker-local.artifactory.virtuefusion.corp/virtuefusion")
 dockerUpdateLatest := true
-dockerExposedPorts := Seq(8081)

@@ -1,6 +1,7 @@
 package com.example
 
 import akka.actor.Actor
+import com.typesafe.config.ConfigFactory
 import spray.routing._
 import spray.http._
 import MediaTypes._
@@ -17,22 +18,21 @@ class MyServiceActor extends Actor with MyService {
   // other things here, like request stream processing
   // or timeout handling
   def receive = runRoute(myRoute)
+
 }
 
 
 // this trait defines our service behavior independently from the service actor
 trait MyService extends HttpService {
+  val config = ConfigFactory.load()
+
 
   val myRoute =
     path("") {
       get {
         respondWithMediaType(`text/html`) { // XML is marshalled to `text/xml` by default, so we simply override here
           complete {
-            <html>
-              <body>
-                <h1>Say hello to <i>spray-routing</i> on <i>spray-can</i>!</h1>
-              </body>
-            </html>
+            s"Enviroment ${config.getString("http.env")}"
           }
         }
       }
