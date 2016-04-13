@@ -11,6 +11,7 @@ import scala.concurrent.duration._
 object Boot extends App {
   val config = ConfigFactory.load()
   println(config.toString)
+  println(config.entrySet())
 
   // we need an ActorSystem to host our application in
   implicit val system = ActorSystem("on-spray-can")
